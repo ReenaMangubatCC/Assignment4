@@ -34,5 +34,31 @@ namespace Assignment4
             MetricRadioButton.Checked = false; 
             
         }
+
+        /// <summary>
+        /// This will trigger a Click Event that will calculate the user's BMI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculateBMIButton_Click(object sender, EventArgs e)
+        {
+            if (ImpericalRadioButton.Checked)
+            {
+                //Retrieve values from the user
+                double userHeight = Convert.ToDouble(HeightTextBox.Text);
+                double userWeight = Convert.ToDouble(WeightTextBox.Text);
+                
+                //Calculate the user's BMI
+                double resultBMI = (userWeight * 703)/(userHeight * userHeight);
+
+                //Display the result
+                BMIResultTextBox.Text = resultBMI.ToString();
+
+            }
+            else
+            {
+
+            }
+        }
     }
 }

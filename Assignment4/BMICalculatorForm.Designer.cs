@@ -44,7 +44,7 @@
             // 
             this.UnitsLabel.AutoSize = true;
             this.UnitsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UnitsLabel.Location = new System.Drawing.Point(7, 148);
+            this.UnitsLabel.Location = new System.Drawing.Point(5, 107);
             this.UnitsLabel.Name = "UnitsLabel";
             this.UnitsLabel.Size = new System.Drawing.Size(73, 29);
             this.UnitsLabel.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             // HeightTextBox
             // 
-            this.HeightTextBox.Location = new System.Drawing.Point(134, 233);
+            this.HeightTextBox.Location = new System.Drawing.Point(134, 220);
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(156, 45);
             this.HeightTextBox.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.MyHeightLebel.AutoSize = true;
             this.MyHeightLebel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MyHeightLebel.Location = new System.Drawing.Point(5, 236);
+            this.MyHeightLebel.Location = new System.Drawing.Point(5, 223);
             this.MyHeightLebel.Name = "MyHeightLebel";
             this.MyHeightLebel.Size = new System.Drawing.Size(126, 29);
             this.MyHeightLebel.TabIndex = 2;
@@ -89,7 +89,7 @@
             this.ImpericalRadioButton.AutoSize = true;
             this.ImpericalRadioButton.Checked = true;
             this.ImpericalRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImpericalRadioButton.Location = new System.Drawing.Point(31, 180);
+            this.ImpericalRadioButton.Location = new System.Drawing.Point(24, 155);
             this.ImpericalRadioButton.Name = "ImpericalRadioButton";
             this.ImpericalRadioButton.Size = new System.Drawing.Size(133, 33);
             this.ImpericalRadioButton.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             this.MetricRadioButton.AutoSize = true;
             this.MetricRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MetricRadioButton.Location = new System.Drawing.Point(170, 180);
+            this.MetricRadioButton.Location = new System.Drawing.Point(163, 155);
             this.MetricRadioButton.Name = "MetricRadioButton";
             this.MetricRadioButton.Size = new System.Drawing.Size(100, 33);
             this.MetricRadioButton.TabIndex = 6;
@@ -117,6 +117,7 @@
             this.CalculateBMIButton.TabIndex = 7;
             this.CalculateBMIButton.Text = "Calculate BMI";
             this.CalculateBMIButton.UseVisualStyleBackColor = true;
+            this.CalculateBMIButton.Click += new System.EventHandler(this.CalculateBMIButton_Click);
             // 
             // BMIResultTextBox
             // 
@@ -143,6 +144,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 38F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 433);
+            this.Controls.Add(this.ImpericalRadioButton);
+            this.Controls.Add(this.MetricRadioButton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.BMIResultTextBox);
             this.Controls.Add(this.CalculateBMIButton);
@@ -150,8 +153,6 @@
             this.Controls.Add(this.WeightTextBox);
             this.Controls.Add(this.MyWeightLabel);
             this.Controls.Add(this.HeightTextBox);
-            this.Controls.Add(this.ImpericalRadioButton);
-            this.Controls.Add(this.MetricRadioButton);
             this.Controls.Add(this.MyHeightLebel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
