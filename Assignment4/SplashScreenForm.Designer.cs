@@ -36,12 +36,13 @@
             // WelcomeLabel
             // 
             this.WelcomeLabel.AutoSize = true;
-            this.WelcomeLabel.Location = new System.Drawing.Point(306, 257);
+            this.WelcomeLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.WelcomeLabel.Location = new System.Drawing.Point(161, 274);
             this.WelcomeLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.WelcomeLabel.Name = "WelcomeLabel";
-            this.WelcomeLabel.Size = new System.Drawing.Size(168, 39);
+            this.WelcomeLabel.Size = new System.Drawing.Size(494, 39);
             this.WelcomeLabel.TabIndex = 0;
-            this.WelcomeLabel.Text = "Welcome!";
+            this.WelcomeLabel.Text = "Welcome to the BMI Calculator!";
             // 
             // SplashTimer
             // 
@@ -52,11 +53,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 38F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(782, 582);
             this.ControlBox = false;
             this.Controls.Add(this.WelcomeLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "SplashScreenForm";
             this.Opacity = 0.8D;
             this.ShowIcon = false;

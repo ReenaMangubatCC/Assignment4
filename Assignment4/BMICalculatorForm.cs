@@ -18,7 +18,7 @@ namespace Assignment4
         }
 
         /// <summary>
-        /// This will trigger a Click Event to Reset all the interactable objects in the form
+        /// This is an event handler to trigger a Click Event that will reset all of radio buttons and text boxes
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -35,8 +35,9 @@ namespace Assignment4
             
         }
 
+
         /// <summary>
-        /// This will trigger a Click Event that will calculate the user's BMI
+        /// This is the event handler to trigger a Click Event that will calculate the user's BMI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -51,6 +52,8 @@ namespace Assignment4
                 //Calculate the user's BMI
                 double resultBMI = (userWeight * 703)/(userHeight * userHeight);
 
+             
+
                 //Display the result
                 BMIResultTextBox.Text = resultBMI.ToString();
 
@@ -58,7 +61,32 @@ namespace Assignment4
             else
             {
 
+
             }
         }
+        /// <summary>
+        /// This is the event handler that triggers labels to be changed when the radio button is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ImpericalRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            HeightUnitsLabel.Text = "in";
+            WeightUnitsLabel.Text = "Ibs";
+
+        }
+        /// <summary>
+        /// This is the event handler that triggers labels to be changed when the radio button is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            HeightUnitsLabel.Text = "m";
+            WeightUnitsLabel.Text = "kg";
+
+        }
+
+
     }
 }
