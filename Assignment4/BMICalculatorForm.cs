@@ -52,16 +52,57 @@ namespace Assignment4
                 //Calculate the user's BMI
                 double resultBMI = (userWeight * 703)/(userHeight * userHeight);
 
-             
+                //Check the resultBMI and display the result to the user
+                if (resultBMI < 18.5)
+                {
+                    BMIResultTextBox.Text = "Underweight";
+                }
+                else if(resultBMI >= 18.5 && resultBMI <= 24.9)
+                {
+                    BMIResultTextBox.Text = "Normal";
+                }
+                else if(resultBMI >= 25 && resultBMI <= 29.9)
+                {
+                    BMIResultTextBox.Text = "Overweight";
+                }
+                else if(resultBMI >= 30)
+                {
+                    BMIResultTextBox.Text = "Obese";
+                }
 
                 //Display the result
-                BMIResultTextBox.Text = resultBMI.ToString();
+                BMILabel.Text = resultBMI.ToString();
 
             }
             else
             {
+                //Retrieve values from the user
+                double userHeight = Convert.ToDouble(HeightTextBox.Text);
+                double userWeight = Convert.ToDouble(WeightTextBox.Text);
 
+                //Calculate the user's BMI
+                double resultBMI = userWeight / (userHeight * userHeight);
 
+                //Check the resultBMI and display the result to the user
+                if (resultBMI < 18.5)
+                {
+                    BMIResultTextBox.Text = "Underweight";
+                }
+                else if (resultBMI >= 18.5 && resultBMI <= 24.9)
+                {
+                    BMIResultTextBox.Text = "Normal";
+                }
+                else if (resultBMI >= 25 && resultBMI <= 29.9)
+                {
+                    BMIResultTextBox.Text = "Overweight";
+                }
+                else if (resultBMI >= 30)
+                {
+                    BMIResultTextBox.Text = "Obese";
+                }
+
+                //Display the result
+                BMILabel.Text = resultBMI.ToString();
             }
         }
         /// <summary>
