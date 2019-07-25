@@ -12,6 +12,10 @@ namespace Assignment4
 {
     public partial class BMICalculatorForm : Form
     {
+        //Class properties
+        public double UserWeight { get; set;}
+        public double UserHeight { get; set; }
+
         public BMICalculatorForm()
         {
             InitializeComponent();
@@ -31,10 +35,12 @@ namespace Assignment4
 
             //Change the radio buttons to their original state
             ImpericalRadioButton.Checked = true;
-            MetricRadioButton.Checked = false; 
+            MetricRadioButton.Checked = false;
+
+            //Hide error label
+            BMIResultLabel.Visible = false;
             
         }
-
 
         /// <summary>
         /// This is the event handler to trigger a Click Event that will calculate the user's BMI
@@ -43,66 +49,82 @@ namespace Assignment4
         /// <param name="e"></param>
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
-            if (ImpericalRadioButton.Checked)
+
+            //Retrieve values from the user
+            UserHeight = double.Parse(HeightTextBox.Text);
+            UserWeight = double.Parse(WeightTextBox.Text);
+
+           if (ImpericalRadioButton.Checked)
             {
-                //Retrieve values from the user
-                double userHeight = Convert.ToDouble(HeightTextBox.Text);
-                double userWeight = Convert.ToDouble(WeightTextBox.Text);
-                
-                //Calculate the user's BMI
-                double resultBMI = (userWeight * 703)/(userHeight * userHeight);
 
-                //Check the resultBMI and display the result to the user
-                if (resultBMI < 18.5)
+                if(UserHeight > 0 && UserWeight > 0)
                 {
-                    BMIResultTextBox.Text = "Underweight";
-                }
-                else if(resultBMI >= 18.5 && resultBMI <= 24.9)
-                {
-                    BMIResultTextBox.Text = "Normal";
-                }
-                else if(resultBMI >= 25 && resultBMI <= 29.9)
-                {
-                    BMIResultTextBox.Text = "Overweight";
-                }
-                else if(resultBMI >= 30)
-                {
-                    BMIResultTextBox.Text = "Obese";
-                }
+                    //Calculate the user's BMI
+                    double resultBMI = (UserWeight * 703) / (UserHeight * UserHeight);
 
-                //Display the result
-                BMILabel.Text = resultBMI.ToString();
+                    //Check the resultBMI and display the result to the user
+                    if (resultBMI < 18.5)
+                    {
+                        BMIResultTextBox.Text = "Underweight";
+                    }
+                    else if (resultBMI >= 18.5 && resultBMI <= 24.9)
+                    {
+                        BMIResultTextBox.Text = "Normal";
+                    }
+                    else if (resultBMI >= 25 && resultBMI <= 29.9)
+                    {
+                        BMIResultTextBox.Text = "Overweight";
+                    }
+                    else if (resultBMI >= 30)
+                    {
+                        BMIResultTextBox.Text = "Obese";
+                    }
 
+                    //Display the result
+                    BMIResultLabel.Text = resultBMI.ToString();
+
+                }
+                else
+                {
+                    BMIResultLabel.Text = "Error: Please enter appropriate values";
+                    BMIResultLabel.Visible = true;
+                }
             }
             else
             {
-                //Retrieve values from the user
-                double userHeight = Convert.ToDouble(HeightTextBox.Text);
-                double userWeight = Convert.ToDouble(WeightTextBox.Text);
 
-                //Calculate the user's BMI
-                double resultBMI = userWeight / (userHeight * userHeight);
+                if (UserHeight > 0 && UserWeight > 0)
+                {
 
-                //Check the resultBMI and display the result to the user
-                if (resultBMI < 18.5)
-                {
-                    BMIResultTextBox.Text = "Underweight";
-                }
-                else if (resultBMI >= 18.5 && resultBMI <= 24.9)
-                {
-                    BMIResultTextBox.Text = "Normal";
-                }
-                else if (resultBMI >= 25 && resultBMI <= 29.9)
-                {
-                    BMIResultTextBox.Text = "Overweight";
-                }
-                else if (resultBMI >= 30)
-                {
-                    BMIResultTextBox.Text = "Obese";
-                }
+                    //Calculate the user's BMI
+                    double resultBMI = UserWeight / (UserHeight * UserHeight);
 
-                //Display the result
-                BMILabel.Text = resultBMI.ToString();
+                    //Check the resultBMI and display the result to the user
+                    if (resultBMI < 18.5)
+                    {
+                        BMIResultTextBox.Text = "Underweight";
+                    }
+                    else if (resultBMI >= 18.5 && resultBMI <= 24.9)
+                    {
+                        BMIResultTextBox.Text = "Normal";
+                    }
+                    else if (resultBMI >= 25 && resultBMI <= 29.9)
+                    {
+                        BMIResultTextBox.Text = "Overweight";
+                    }
+                    else if (resultBMI >= 30)
+                    {
+                        BMIResultTextBox.Text = "Obese";
+                    }
+
+                    //Display the result
+                    BMIResultLabel.Text = resultBMI.ToString();
+                }
+                else
+                {
+                    BMIResultLabel.Text = "Error: Please enter appropriate values";
+                    BMIResultLabel.Visible = true;
+                }
             }
         }
         /// <summary>
@@ -127,7 +149,42 @@ namespace Assignment4
             WeightUnitsLabel.Text = "kg";
 
         }
+        /// <summary>
+        /// This is an Event Handler for input into the textbox to ensure that the correct datatype is entered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WeightTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double.Parse(WeightTextBox.Text);
+                CalculateBMIButton.Enabled = true;
+            }
+            catch
+            {
+                CalculateBMIButton.Enabled = false;
+            }
 
+        }
 
+        /// <summary>
+        /// This is an Event Handler for input into the textbox to ensure that the correct datatype is entered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HeightTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double.Parse(HeightTextBox.Text);
+                CalculateBMIButton.Enabled = true;
+            }
+            catch
+            {
+                CalculateBMIButton.Enabled = false;
+            }
+
+        }
     }
 }
